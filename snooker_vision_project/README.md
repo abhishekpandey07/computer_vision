@@ -15,5 +15,7 @@ Some pretrained classifiers can  be found in predictors folders.
 The dataset can be processed in ovo ( colour classification ) and ova ( ball/ not ball for false positives) mode. The classifiers have been trained and saved on each of these modes and with various preprocessing indicated by the prefix of file  names.
 
 hue  --> HSV colorspace ( only h vector)
+
 gray --> grayscale images
+
 hog --> HOG descriptors
