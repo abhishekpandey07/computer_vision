@@ -1,0 +1,741 @@
+root@abhishek-GE62-2QF:~/Desktop/Vision/Projects# python ball_classifier.py dataset/balls/processedData/hue_ova_scaled_encoded.pkl ova hsv True True prcedictors/models/
+Reading Encoder
+Reading Scaler
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 0.61666667  0.36190476  0.27067669]
+Saving best model with precision: 0.616666666667
+
+Evaluating  Test set with :
+[[101   3]
+ [  0  28]]
+Accuracy: 0.977272727273
+Precision: 0.903225806452
+Recall: 1.0
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/hsv_ova.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+Precision: [ 1.  1.  0.]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[104   0]
+ [ 28   0]]
+Accuracy: 0.787878787879
+Precision: 0.0
+Recall: 0.0
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/hsv_ova.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 1.          0.50684932  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[104   0]
+ [ 28   0]]
+Accuracy: 0.787878787879
+Precision: 0.0
+Recall: 0.0
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/hsv_ova.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 0.94871795  0.7037037   0.45945946]
+Saving best model with precision: 0.948717948718
+
+Evaluating  Test set with :
+[[101   3]
+ [  5  23]]
+Accuracy: 0.939393939394
+Precision: 0.884615384615
+Recall: 0.821428571429
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/hsv_ova.pkl
+root@abhishek-GE62-2QF:~/Desktop/Vision/Projects# python ball_classifier.py dataset/balls/processedData/gray_ova_scaled_encoded.pkl ova gray True True prcedictors/models/
+Reading Encoder
+Reading Scaler
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 0.97435897  0.51388889  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[63 41]
+ [ 3 25]]
+Accuracy: 0.666666666667
+Precision: 0.378787878788
+Recall: 0.892857142857
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/gray_ova.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+Precision: [ 0.  0.  0.]
+Saving best model with precision: 0
+
+Evaluating  Test set with :
+[[104   0]
+ [ 28   0]]
+Accuracy: 0.787878787879
+Precision: 0.0
+Recall: 0.0
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/gray_ova.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 1.          0.51470588  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[104   0]
+ [ 28   0]]
+Accuracy: 0.787878787879
+Precision: 0.0
+Recall: 0.0
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/gray_ova.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 0.95        1.          0.97222222]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[104   0]
+ [  3  25]]
+Accuracy: 0.977272727273
+Precision: 1.0
+Recall: 0.892857142857
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/gray_ova.pkl
+root@abhishek-GE62-2QF:~/Desktop/Vision/Projects# python ball_classifier.py dataset/balls/processedData/hog_ova_encoded.pkl ova hog False True prcedictors/models/
+Reading Encoder
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 1.          0.97435897  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[103   1]
+ [  0  28]]
+Accuracy: 0.992424242424
+Precision: 0.965517241379
+Recall: 1.0
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/hog_ova.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+Precision: [ 1.  1.  1.]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[104   0]
+ [  8  20]]
+Accuracy: 0.939393939394
+Precision: 1.0
+Recall: 0.714285714286
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/hog_ova.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 1.          0.94871795  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[104   0]
+ [  1  27]]
+Accuracy: 0.992424242424
+Precision: 1.0
+Recall: 0.964285714286
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/hog_ova.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 1.          0.97368421  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[104   0]
+ [  0  28]]
+Accuracy: 1.0
+Precision: 1.0
+Recall: 1.0
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/hog_ova.pkl
+root@abhishek-GE62-2QF:~/Desktop/Vision/Projects# 
+
+
+
+Above log shows result of ball not ball classification.
+
+Date 27 Aug  2017 5:42 Am
+
+Note_to_self. Need to convert ball_classifier.py into a pipeline.
+Create a pipeline to automate work_frame.py as well.
+
+
+
+
+August 31, 11:39pm
+
+python ball_classifier.py dataset/balls/processedDataPipeline/hsv_ovo.pkl ovo hsv True True prcedictors/models/
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 0.95954416  0.96225071  0.77947615]
+Saving best model with precision: 0.962250712251
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 1  0  0  1 25  1  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  1  0  8  0  0]
+ [ 2  0  1  0  1  0  1 39  1]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.922480620155
+Precision: 0.896651702207
+Recall: 0.960934744268
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/hsv_ovo.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+Precision: [ 0.98873349  0.99820789  0.95838421]
+Saving best model with precision: 0.998207885305
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 2  0  0  1 25  0  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  7  2  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.961240310078
+Precision: 0.960703966378
+Recall: 0.963403880071
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/hsv_ovo.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 0.97589426  0.98852901  0.98148148]
+Saving best model with precision: 0.988529014845
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 1  0  0  0 27  0  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  9  0  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  1  0  0  0  6]]
+Accuracy: 0.984496124031
+Precision: 0.983686067019
+Recall: 0.980158730159
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/hsv_ovo.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 0.93350899  0.96653717  0.92440584]
+Saving best model with precision: 0.966537166537
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 1  0  0  1 25  1  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  9  0  0]
+ [ 0  0  0  0  4  0  0 41  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.945736434109
+Precision: 0.946094082588
+Recall: 0.978218694885
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/hsv_ovo.pkl
+root@abhishek-GE62-2QF:~/Desktop/Vision/Projects# python ball_classifier.py dataset/balls/processedDataPipeline/hog_ova.pkl ova hog False True prcedictors/models/
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 0.97554773  0.95666008  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[101   3]
+ [  2  26]]
+Accuracy: 0.962121212121
+Precision: 0.938567124205
+Recall: 0.949862637363
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/hog_ova.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+Precision: [ 0.89548023  0.89548023  0.39548023]
+Saving best model with precision: 0.895480225989
+
+Evaluating  Test set with :
+[[104   0]
+ [ 26   2]]
+Accuracy: 0.80303030303
+Precision: 0.9
+Recall: 0.535714285714
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/hog_ova.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 0.94981203  0.89005602  0.88131313]
+Saving best model with precision: 0.949812030075
+
+Evaluating  Test set with :
+[[86 18]
+ [ 2 26]]
+Accuracy: 0.848484848485
+Precision: 0.784090909091
+Recall: 0.877747252747
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/hog_ova.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/neural_network/multilayer_perceptron.py:564: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  % self.max_iter, ConvergenceWarning)
+Precision: [ 0.97172827  0.96793301  1.        ]
+Saving best model with precision: 1.0
+
+Evaluating  Test set with :
+[[103   1]
+ [  3  25]]
+Accuracy: 0.969696969697
+Precision: 0.966618287373
+Recall: 0.941620879121
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/hog_ova.pkl
+root@abhishek-GE62-2QF:~/Desktop/Vision/Projects# python ball_classifier.py dataset/balls/processedDataPipeline/hog_ovo.pkl ovo hog False True prcedictors/models/
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+Precision: [ 0.76599884  0.49969521  0.86356632]
+Saving best model with precision: 0.863566323215
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  4  0  0  3  0  1]
+ [ 0  1  2  0 24  1  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  4  0  0  5  0  0]
+ [ 0  2  2  0  1  0  0 40  0]
+ [ 0  0  0  1  0  0  0  0  6]]
+Accuracy: 0.860465116279
+Precision: 0.79758377425
+Recall: 0.850970017637
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/hog_ovo.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+Precision: [ 0.1505168   0.15028902  0.13624339]
+Saving best model with precision: 0.150516795866
+
+Evaluating  Test set with :
+[[ 0  0  0  0  0  0  0  8  0]
+ [ 0  0  0  0  0  0  0  9  0]
+ [ 0  0  0  0  0  0  0  8  0]
+ [ 0  0  0  0  0  0  0  8  0]
+ [ 0  0  0  0 12  0  0 16  0]
+ [ 0  0  0  0  0  0  0  7  0]
+ [ 0  0  0  0  0  0  0  9  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  7  0]]
+Accuracy: 0.441860465116
+Precision: 0.153846153846
+Recall: 0.15873015873
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/hog_ovo.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 0.90191641  0.93656767  0.95827532]
+Saving best model with precision: 0.958275317924
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  6  0  0  1  0  1]
+ [ 0  0  1  0 24  1  0  2  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  9  0  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.953488372093
+Precision: 0.944037299711
+Recall: 0.956349206349
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/hog_ovo.pkl
+
+Training and Evaluating a MLP classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/neural_network/multilayer_perceptron.py:564: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  % self.max_iter, ConvergenceWarning)
+Cross Validating  MLP classifier
+Precision: [ 0.89091192  0.8835097   0.91142788]
+Saving best model with precision: 0.911427875244
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  4  0  0  3  0  1]
+ [ 0  0  1  0 25  1  0  1  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  2  0  0  7  0  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  1  0  0  0  0  6]]
+Accuracy: 0.922480620155
+Precision: 0.874524576336
+Recall: 0.891975308642
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/hog_ovo.pkl
+root@abhishek-GE62-2QF:~/Desktop/Vision/Projects# python ball_classifier.py dataset/balls/processedDataPipeline/hsv_ovo.pkl ovo hsv True True prcedictors/models/
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 0.95954416  0.96225071  0.77947615]
+Saving best model with precision: 0.962250712251
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 1  0  0  1 25  1  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  1  0  8  0  0]
+ [ 2  0  1  0  1  0  1 39  1]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.922480620155
+Precision: 0.896651702207
+Recall: 0.960934744268
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/hsv_ovo.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+Precision: [ 0.98873349  0.99820789  0.95838421]
+Saving best model with precision: 0.998207885305
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 2  0  0  1 25  0  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  7  2  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.961240310078
+Precision: 0.960703966378
+Recall: 0.963403880071
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/hsv_ovo.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 0.98921449  0.9872134   0.97496947]
+Saving best model with precision: 0.989214489214
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 0  0  0  0 28  0  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  9  0  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 1.0
+Precision: 1.0
+Recall: 1.0
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/hsv_ovo.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 0.96652422  0.95880114  0.93376348]
+Saving best model with precision: 0.966524216524
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 0  0  0  2 24  2  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  9  0  0]
+ [ 0  0  0  1  0  0  0 44  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.961240310078
+Precision: 0.945005611672
+Recall: 0.981657848325
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/hsv_ovo.pkl
+
+python ball_classifier.py dataset/balls/processedDataPipeline/hsv_ova.pkl ova hsv True True prcedictors/models/
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 0.92663043  0.68376665  0.68295019]
+Saving best model with precision: 0.926630434783
+
+Evaluating  Test set with :
+[[102   2]
+ [  2  26]]
+Accuracy: 0.969696969697
+Precision: 0.95467032967
+Recall: 0.95467032967
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/hsv_ova.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+Precision: [ 0.9964539   0.75333333  0.98951049]
+Saving best model with precision: 0.996453900709
+
+Evaluating  Test set with :
+[[102   2]
+ [  3  25]]
+Accuracy: 0.962121212121
+Precision: 0.948677248677
+Recall: 0.936813186813
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/hsv_ova.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 0.98275862  0.74519231  0.99295775]
+Saving best model with precision: 0.992957746479
+
+Evaluating  Test set with :
+[[102   2]
+ [  3  25]]
+Accuracy: 0.962121212121
+Precision: 0.948677248677
+Recall: 0.936813186813
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/hsv_ova.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 0.96654135  0.74050633  0.99295775]
+Saving best model with precision: 0.992957746479
+
+Evaluating  Test set with :
+[[101   3]
+ [  2  26]]
+Accuracy: 0.962121212121
+Precision: 0.938567124205
+Recall: 0.949862637363
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/hsv_ova.pkl
+
+python ball_classifier.py dataset/balls/processedDataPipeline/gray_ovo.pkl ovo gray True True prcedictors/models/
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+Precision: [ 0.86123737  0.87977127  0.67160778]
+Saving best model with precision: 0.879771267973
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  5  0  0  0  0  3]
+ [ 0  0  0  0 25  2  0  1  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  2  0  0  2  3  2]
+ [ 1  1  0  0  0  1  1 41  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.868217054264
+Precision: 0.818253968254
+Recall: 0.850132275132
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/gray_ovo.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+Precision: [ 0.97467415  0.95885603  0.98656675]
+Saving best model with precision: 0.986566749279
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 0  0  0  0 27  1  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  9  0  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.992248062016
+Precision: 0.986111111111
+Recall: 0.996031746032
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/gray_ovo.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 0.99074074  0.98148148  0.98607665]
+Saving best model with precision: 0.990740740741
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 0  0  2  0 26  0  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  0  0  0  9  0  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.984496124031
+Precision: 0.977777777778
+Recall: 0.992063492063
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/gray_ovo.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 0.96582492  0.97256686  0.95819304]
+Saving best model with precision: 0.972566859664
+
+Evaluating  Test set with :
+[[ 8  0  0  0  0  0  0  0  0]
+ [ 0  9  0  0  0  0  0  0  0]
+ [ 0  0  8  0  0  0  0  0  0]
+ [ 0  0  0  8  0  0  0  0  0]
+ [ 0  0  1  0 23  4  0  0  0]
+ [ 0  0  0  0  0  7  0  0  0]
+ [ 0  0  0  1  0  0  8  0  0]
+ [ 0  0  0  0  0  0  0 45  0]
+ [ 0  0  0  0  0  0  0  0  7]]
+Accuracy: 0.953488372093
+Precision: 0.934904601571
+Recall: 0.967813051146
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/gray_ovo.pkl
+
+python ball_classifier.py dataset/balls/processedDataPipeline/gray_ova.pkl ova gray True True prcedictors/models/
+
+Training and Evaluating a SGD classifier
+/home/abhishek/.local/lib/python2.7/site-packages/sklearn/linear_model/stochastic_gradient.py:84: FutureWarning: max_iter and tol parameters have been added in <class 'sklearn.linear_model.stochastic_gradient.SGDClassifier'> in 0.19. If both are left unset, they default to max_iter=5 and tol=None. If tol is not None, max_iter defaults to max_iter=1000. From 0.21, default max_iter will be 1000, and default tol will be 1e-3.
+  "and default tol will be 1e-3." % type(self), FutureWarning)
+Cross Validating  SGD classifier
+Precision: [ 0.98327068  0.75965608  0.99295775]
+Saving best model with precision: 0.992957746479
+
+Evaluating  Test set with :
+[[64 40]
+ [ 4 24]]
+Accuracy: 0.666666666667
+Precision: 0.658088235294
+Recall: 0.736263736264
+Saving the model to prcedictors/models/SGD/
+Model saved successfully to predictors/models/SGD/gray_ova.pkl
+
+Training and Evaluating a SVC classifier
+Cross Validating  SVC classifier
+Precision: [ 0.98717949  0.86089004  0.9964539 ]
+Saving best model with precision: 0.996453900709
+
+Evaluating  Test set with :
+[[101   3]
+ [  2  26]]
+Accuracy: 0.962121212121
+Precision: 0.938567124205
+Recall: 0.949862637363
+Saving the model to prcedictors/models/SVC/
+Model saved successfully to predictors/models/SVC/gray_ova.pkl
+
+Training and Evaluating a RFC classifier
+Cross Validating  RFC classifier
+Precision: [ 0.98951049  0.72074503  0.9964539 ]
+Saving best model with precision: 0.996453900709
+
+Evaluating  Test set with :
+[[103   1]
+ [  4  24]]
+Accuracy: 0.962121212121
+Precision: 0.961308411215
+Recall: 0.923763736264
+Saving the model to prcedictors/models/RFC/
+Model saved successfully to predictors/models/RFC/gray_ova.pkl
+
+Training and Evaluating a MLP classifier
+Cross Validating  MLP classifier
+Precision: [ 0.9964539   0.78653496  0.99295775]
+Saving best model with precision: 0.996453900709
+
+Evaluating  Test set with :
+[[104   0]
+ [  3  25]]
+Accuracy: 0.977272727273
+Precision: 0.985981308411
+Recall: 0.946428571429
+Saving the model to prcedictors/models/MLP/
+Model saved successfully to predictors/models/MLP/gray_ova.pkl
+

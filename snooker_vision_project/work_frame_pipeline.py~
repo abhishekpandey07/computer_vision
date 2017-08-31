@@ -1,0 +1,184 @@
+import cv2
+import numpy as np
+from glob import glob
+import matplotlib.pyplot as plt
+import common
+import ball_tracker
+import sys
+from sklearn.preprocessing import StandardScaler, LabelBinarizer, LabelEncoder
+from sklearn.neural_network import MLPClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.base import BaseEstimator, TransformerMixin
+
+import cPickle as pickle
+from ball_classifier import BallClassifier
+from pipeline_draft import ColorSpaceTransformer, HogDescriptor, createHogPipeline, LabelTransform,labelencoder
+
+def max_area_contour(contours):
+        maximum_area = 0
+        select = None
+        for cnt in contours:
+            area =  cv2.contourArea(cnt)
+            if area  > maximum_area:
+                maximum_area = area
+                select = cnt
+        return select
+def findContour(img,h=None):
+        hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+        if h is None:
+                h  = np.median(hsv[:,:,0].ravel())
+        else:
+                h = int(h)
+        print 'setting lower h channel to ', h
+        lower = np.array([h,0,0])
+        higher = np.array([h+20,255,255])
+       
+        mask = cv2.inRange(hsv,lower,higher)
+        _,contours,_ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        if len(contours) > 0:
+            draw = max_area_contour(contours)
+            if draw is not None:
+                epsilon = 0.009*cv2.arcLength(draw,True)
+                approx = cv2.approxPolyDP(draw,epsilon,True)
+        return approx
+
+def findAndDrawContours(img,h = None):
+
+        
+        approx = findContour(img,h)
+        if approx  is not None:
+                points = approx.reshape(1,-1)
+                points[0][4] = points[0][4] + 1
+                points[0][3] = points[0][3] - 3
+                points[0][0] = points[0][0] - 3
+                points[0][2] = points[0][2] + 4
+                points[0][5] = points[0][5] - 5
+                points[0][7] = points[0][7] - 5
+                points[0][6] = points[0][6] - 3
+                points = points.reshape(-1,2)
+
+                #changePerspective(points,img)
+                #cv2.drawContours(img,[points],-1,[255,0,0],1)
+                #x,y,w,h = cv2.boundingRect(approx)
+                #cv2.rectangle(img,(x,y-5),(x+w,y+h),(100,0,100),2)        
+                return True, img, points
+            
+        return False, None, None
+
+class changePerspective(BaseEstimator,TransformerMixin):
+    def __init__(self, points):
+        self.points = points
+
+    def fit(self,X,y=None,**fit_params):
+        return self
+    def transform(self,X):
+        r , c  = 480, 960
+        setpoints = np.float32([[c,r],[c,0],[0,0],[0,r]])
+        M = cv2.getPerspectiveTransform(np.float32(self.points),setpoints)
+        X = cv2.warpPerspective(X,M,(c,r))
+        return X
+
+class getDilatedMask(BaseEstimator,TransformerMixin):
+    def __init__(self,background,method='lol'):
+        self.background = background
+        self.method = method
+        if self.method != 'subtractThenGray':
+            self.background = cv2.cvtColor(self.background,cv2.COLOR_BGR2GRAY)
+        
+    def fit(self,X,y=None,**fit_params):
+        return self
+    def transform(self,img):
+        if self.method == 'subtractThenGray':
+            diff = cv2.subtract(img,self.background)
+            diff = cv2.cvtColor(diff,cv2.COLOR_BGR2GRAY)
+        else:
+            gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+            diff = cv2.subtract(gray,self.background)
+   
+        _, mask = cv2.threshold(diff,60,255,cv2.THRESH_BINARY)
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3))
+        return (img,cv2.dilate(mask, kernel, iterations=2))
+
+class GrabBalls(BaseEstimator,TransformerMixin):
+    def grabBalls(self,img,circles):
+        balls = []
+        for [(x,y),r] in circles:
+            x = x - 15
+            y = y - 10
+            w = 25
+            h = 20
+            if x 
+            balls.append(img[y:y+h,x:x+w])
+            return balls
+
+    def fit(self,X,y=None,**fit_params):
+        return self
+    def transform(self,(img,mask)):
+        circles = ball_tracker.detectBallContour(img,mask)
+        balls = self.grabBalls(img,circles)
+        print 'Balls found :', len(balls[0]), 'with shape:', balls[0][0].shape
+        return balls[0]
+
+class usePipeline(BaseEstimator,TransformerMixin):
+    def __init__(self,pipeline):
+        self.pipeline = pipeline
+
+    def fit(self,X,y=None,**fit_params):
+        return Self
+
+    def transform(self,X):
+        return self.pipeline.transform(X)
+
+def main(argv):
+    video = argv[1]
+    back_address = argv[2]
+    h = argv[3]
+    if h  == 'None':
+        h = None
+    else:
+        h = int(h)
+        
+    pipeline_address = 'dataset/balls/pipelines/pipeline-'
+    mode = str(argv[4])
+    process = str(argv[5])
+    pipeline_address = pipeline_address + process + '_' + mode + '.pkl'
+    
+    background  = cv2.imread(back_address)
+    _,_,points = findAndDrawContours(background.copy(),h)
+    perspective =  changePerspective(points)
+    background = perspective.fit_transform(background)
+    cap = cv2.VideoCapture(video)
+
+    f = open(pipeline_address,'rb')
+    
+    if process == 'hog':    
+       data_pipeline = createHogPipeline()
+    else:
+        data_pipeline = pickle.load(f)
+
+    label_pipeline = pickle.load(f)
+    
+    if data_pipeline is not None:
+        print 'data_pipeline successfully created.'
+    if label_pipeline is not None:
+        print 'label_pipeline successfully created.'
+
+    classifier = BallClassifier('MLP','hog_ova','predictors/models/')
+    classifier.load_model()
+    
+    frame_pipe = Pipeline([
+            ('perspective',perspective),
+            ('dilated_mask',getDilatedMask(background)),
+            ('balls',GrabBalls()),
+            ('data_pipe',data_pipeline),
+            ('classifier',classifier)
+            ])
+        
+    if frame_pipe is not None:
+            print 'frame_pipeline formed'
+
+    frame = cv2.imread('dataset/captures/capture-4.tiff')
+    print frame_pipe.predict(frame)
+        
+if __name__ == '__main__':
+    main(sys.argv)
