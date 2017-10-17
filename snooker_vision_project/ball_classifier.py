@@ -6,13 +6,11 @@ from sklearn import svm
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import StratifiedKFold
-from sklearn.model_selection  import cross_val_score
+from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.base import clone
 from sklearn.metrics import confusion_matrix, precision_score
 from sklearn.metrics import recall_score,f1_score,accuracy_score
 import cPickle as pickle
-import dataVisual
 import matplotlib.pyplot as plt
 
 class BallClassifier:
@@ -85,7 +83,7 @@ def cross_validate(classifier,X,Y,n_splits):
     skfolds = StratifiedKFold(n_splits=n_splits,random_state=7)
     best_accuracy = 0
     clones = []
-    precisions = []
+    accuracies = []
     for train_index,test_index in skfolds.split(X,Y):      
         clone_clf = clone(classifier.model)
         X_train = X[train_index]
@@ -94,23 +92,23 @@ def cross_validate(classifier,X,Y,n_splits):
         Y_test = Y[test_index]
         clone_clf.fit(X_train,Y_train)
         y_pred = clone_clf.predict(X_test)
-        precision = precision_score(Y_test,y_pred,average='macro')
-        precisions.append(precision)
+        accuracy = accuracy_score(Y_test,y_pred,average=None)
+        accuracies.append(accuracy)
         clones.append(clone_clf)
 
     #clones=np.array(clones)
-    precisions = np.array(precisions)
-    print 'Precision:',precisions
-    best_precision = 0
+    accuracies = np.array(accuracies)
+    print 'accuracies:',precisions
+    best_accuracy = 0
     index = -1
-    for i,b in enumerate(precisions):
-        if b > best_precision:
+    for i,b in enumerate(accuracies):
+        if b > best_accuracy:
             index = i
-            best_precision = b
+            best_accuracy = b
     best_clone = clones[index]
-    print 'Saving best model with precision:', best_precision
+    print 'Saving best model with accuracy:', best_accuracy
     classifier.model = best_clone
-    return precisions, classifier
+    return accuracies, classifier
 
 def main(argv):
     load_data_file =  argv[1]
@@ -133,7 +131,7 @@ def main(argv):
         #print conf
         #plt.matshow(conf)
         print 'Cross Validating ', model, 'classifier'
-        scores,bclf = cross_validate(bclf,X_train,Y_train,3)
+        scores, bclf = cross_validate(bclf,X_train,Y_train,3)
         #plt.show()
 
         print'\nEvaluating  Test set with :'

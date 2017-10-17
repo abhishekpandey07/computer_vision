@@ -1,0 +1,36 @@
+import cv2
+import numpy as np
+import common
+from glob import glob
+import os
+import cPickle as pickle
+import matplotlib.pyplot as plt
+
+def main():
+    
+    base_directory = 'dataset/balls/balls/'
+    labels = ['red','yellow','green','blue','brown',
+              'pink','black','cue_ball','not_balls']
+    ext = '.tiff'
+    for i,l in enumerate(labels):
+        
+        directory = base_directory + l +  '/*'   + ext
+        files = glob(directory)
+        img = cv2.imread(files[5])
+        hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+        hist = common.explore_histogram(hsv[:,:,0],colour = False,xlim = 180)
+        number  =  '52' + str(i+1)
+        colour = ['b','g','r']
+        plt.subplot(int(number))
+        for i,h in enumerate(hist):
+            plt.plot(h, color = colour[i] )
+            plt.xlim([0,180])
+        plt.title(l)
+
+    plt.show()
+if  __name__ == '__main__':
+    main()
+    
+
+    
+        

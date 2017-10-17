@@ -140,8 +140,11 @@ class LabelTransform(BaseEstimator,TransformerMixin):
         return X
     
 class labelencoder(BaseEstimator,TransformerMixin):
-    def __init__(self):
-        self.encoder = LabelEncoder()
+    def __init__(self,encoder_type = 'encoder'):
+        if encoder_type == 'encoder':
+            self.encoder = LabelEncoder()
+        elif encoder_type  == 'binarizer':
+            self.encoder = LabelBinarizer()
     def fit(self,X,y=None,**fit_params):
         self.encoder.fit(X)
         return self
@@ -175,8 +178,8 @@ def createPipelines(mode,process):
 
 def main(argv):
     
-    data_save_directory = 'dataset/balls/processedDataPipeline/'
-    pipeline_save_directory = 'dataset/balls/pipelines/'
+    data_save_directory = 'dataset/balls/processedDataPipeline/onehot_encoded/'
+    pipeline_save_directory = 'dataset/balls/pipelines/onehot_encoded/'
     save_file = argv[1]
     mode = argv[2]
     process = argv[3]
