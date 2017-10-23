@@ -258,7 +258,7 @@ def main(argv):
                         elif predict == 'cue_ball':
                                 cv2.rectangle(changed_img,(x,y),(x+w,y+h),[255,255,255],2)
                 text =  'reds:'+ str(len(prediction[np.where(prediction == 'red')]))
-                cv2.putText(changed_img, text,(5,20),cv2.FONT_HERSHEY_COMPLEX,1,(0,200,0),2)
+                cv2.putText(changed_img, text,(5,20),cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255),2)
                 cv2.imshow('predicted result', changed_img)
     
         k = cv2.waitKey(1000/100)
