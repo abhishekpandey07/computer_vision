@@ -33,4 +33,11 @@ Above command will use the video at `dataset/video_data/Ronnie/Ronnie-147.mp4`
 and file `dataset/video_data/Ronnie/background.tiff` as input. The default hue filtering
 parameter `h` is set to 52 for segmenting the frame from background.
 
+
+![screenshot](screenshots/s0.png)
+![screenshot](screenshots/s1.png)
+![screenshot](screenshots/s2.png)
+
+
+
 ENJOY!
