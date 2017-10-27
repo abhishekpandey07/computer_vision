@@ -15,6 +15,10 @@ gray --> grayscale images
 
 hog --> HOG descriptors
 
+
+![screenshot](screenshots/s2.png)
+
+
 # Demo.
  First go to the project directory.
  
@@ -35,8 +39,10 @@ parameter `h` is set to 52 for segmenting the frame from background.
 
 
 ![screenshot](screenshots/s0.png)
+
+
 ![screenshot](screenshots/s1.png)
-![screenshot](screenshots/s2.png)
+
 
 
 
